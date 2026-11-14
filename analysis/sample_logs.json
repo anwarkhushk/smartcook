@@ -1,0 +1,35 @@
+{
+  "exportedAt": "2026-11-15T03:30:00.000Z",
+  "participantId": "ALL_SAMPLE",
+  "events": [
+    { "id": 1, "timestamp": "2026-11-15T01:00:00Z", "participantId": "P01", "mode": "baseline", "taskName": "Task 1: Find step 5", "eventType": "task_start", "inputSource": "system", "action": "task_start", "success": true, "adaptation": null },
+    { "id": 2, "timestamp": "2026-11-15T01:00:05Z", "participantId": "P01", "mode": "baseline", "taskName": "Task 1: Find step 5", "eventType": "action", "inputSource": "touch", "action": "nextStep", "success": true, "adaptation": null },
+    { "id": 3, "timestamp": "2026-11-15T01:00:18Z", "participantId": "P01", "mode": "baseline", "taskName": "Task 1: Find step 5", "eventType": "task_end", "inputSource": "system", "action": "task_end", "success": true, "durationSeconds": 18.4, "errorCount": 1, "adaptation": null },
+
+    { "id": 4, "timestamp": "2026-11-15T01:02:00Z", "participantId": "P01", "mode": "smartcook", "taskName": "Task 1: Find step 5", "eventType": "task_start", "inputSource": "system", "action": "task_start", "success": true, "adaptation": null },
+    { "id": 5, "timestamp": "2026-11-15T01:02:04Z", "participantId": "P01", "mode": "smartcook", "taskName": "Task 1: Find step 5", "eventType": "action", "inputSource": "voice", "action": "nextStep", "success": true, "adaptation": null },
+    { "id": 6, "timestamp": "2026-11-15T01:02:06Z", "participantId": "P01", "mode": "smartcook", "taskName": "Task 1: Find step 5", "eventType": "adaptation_triggered", "inputSource": "system", "action": "largeUi", "success": true, "adaptation": { "rule": "largeUi", "active": true, "reason": "Text and buttons enlarged because you seem far from the screen." } },
+    { "id": 7, "timestamp": "2026-11-15T01:02:11Z", "participantId": "P01", "mode": "smartcook", "taskName": "Task 1: Find step 5", "eventType": "task_end", "inputSource": "system", "action": "task_end", "success": true, "durationSeconds": 11.2, "errorCount": 0, "adaptation": null },
+
+    { "id": 8, "timestamp": "2026-11-15T01:05:10Z", "participantId": "P02", "mode": "baseline", "taskName": "Task 1: Find step 5", "eventType": "task_end", "inputSource": "system", "action": "task_end", "success": true, "durationSeconds": 21.0, "errorCount": 2, "adaptation": null },
+    { "id": 9, "timestamp": "2026-11-15T01:07:10Z", "participantId": "P02", "mode": "smartcook", "taskName": "Task 1: Find step 5", "eventType": "task_end", "inputSource": "system", "action": "task_end", "success": true, "durationSeconds": 13.5, "errorCount": 0, "adaptation": null },
+
+    { "id": 10, "timestamp": "2026-11-15T01:10:10Z", "participantId": "P03", "mode": "baseline", "taskName": "Task 2: Set a 3 minute timer", "eventType": "task_end", "inputSource": "system", "action": "task_end", "success": true, "durationSeconds": 16.8, "errorCount": 1, "adaptation": null },
+    { "id": 11, "timestamp": "2026-11-15T01:12:10Z", "participantId": "P03", "mode": "smartcook", "taskName": "Task 2: Set a 3 minute timer", "eventType": "task_end", "inputSource": "system", "action": "task_end", "success": true, "durationSeconds": 9.4, "errorCount": 0, "adaptation": null },
+
+    { "id": 12, "timestamp": "2026-11-15T01:15:10Z", "participantId": "P04", "mode": "baseline", "taskName": "Task 2: Set a 3 minute timer", "eventType": "task_end", "inputSource": "system", "action": "task_end", "success": true, "durationSeconds": 24.1, "errorCount": 2, "adaptation": null },
+    { "id": 13, "timestamp": "2026-11-15T01:17:10Z", "participantId": "P04", "mode": "smartcook", "taskName": "Task 2: Set a 3 minute timer", "eventType": "task_end", "inputSource": "system", "action": "task_end", "success": true, "durationSeconds": 14.3, "errorCount": 1, "adaptation": null },
+
+    { "id": 14, "timestamp": "2026-11-15T01:20:10Z", "participantId": "P05", "mode": "baseline", "taskName": "Task 3: Ask the AI a question", "eventType": "task_end", "inputSource": "system", "action": "task_end", "success": true, "durationSeconds": 28.5, "errorCount": 2, "adaptation": null },
+    { "id": 15, "timestamp": "2026-11-15T01:22:10Z", "participantId": "P05", "mode": "smartcook", "taskName": "Task 3: Ask the AI a question", "eventType": "task_end", "inputSource": "system", "action": "task_end", "success": true, "durationSeconds": 12.7, "errorCount": 0, "adaptation": null },
+
+    { "id": 16, "timestamp": "2026-11-15T01:25:10Z", "participantId": "P06", "mode": "baseline", "taskName": "Task 1: Find step 5", "eventType": "task_end", "inputSource": "system", "action": "task_end", "success": true, "durationSeconds": 19.6, "errorCount": 1, "adaptation": null },
+    { "id": 17, "timestamp": "2026-11-15T01:27:10Z", "participantId": "P06", "mode": "smartcook", "taskName": "Task 1: Find step 5", "eventType": "task_end", "inputSource": "system", "action": "task_end", "success": true, "durationSeconds": 10.8, "errorCount": 0, "adaptation": null },
+
+    { "id": 18, "timestamp": "2026-11-15T01:30:10Z", "participantId": "P07", "mode": "baseline", "taskName": "Task 2: Set a 3 minute timer", "eventType": "task_end", "inputSource": "system", "action": "task_end", "success": true, "durationSeconds": 22.4, "errorCount": 3, "adaptation": null },
+    { "id": 19, "timestamp": "2026-11-15T01:32:10Z", "participantId": "P07", "mode": "smartcook", "taskName": "Task 2: Set a 3 minute timer", "eventType": "task_end", "inputSource": "system", "action": "task_end", "success": true, "durationSeconds": 13.1, "errorCount": 1, "adaptation": null },
+
+    { "id": 20, "timestamp": "2026-11-15T01:35:10Z", "participantId": "P08", "mode": "baseline", "taskName": "Task 3: Ask the AI a question", "eventType": "task_end", "inputSource": "system", "action": "task_end", "success": true, "durationSeconds": 25.2, "errorCount": 2, "adaptation": null },
+    { "id": 21, "timestamp": "2026-11-15T01:37:10Z", "participantId": "P08", "mode": "smartcook", "taskName": "Task 3: Ask the AI a question", "eventType": "task_end", "inputSource": "system", "action": "task_end", "success": true, "durationSeconds": 11.9, "errorCount": 0, "adaptation": null }
+  ]
+}

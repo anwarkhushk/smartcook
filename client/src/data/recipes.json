@@ -1,0 +1,83 @@
+[
+  {
+    "id": "omelette",
+    "title": "Classic Omelette",
+    "emoji": "🥚",
+    "description": "A quick fluffy omelette with cheese and herbs.",
+    "servings": 1,
+    "ingredients": [
+      "3 eggs",
+      "2 tbsp milk",
+      "1/4 cup shredded cheese",
+      "Salt and pepper to taste",
+      "1 tbsp butter",
+      "Fresh herbs (optional)"
+    ],
+    "steps": [
+      { "text": "Crack 3 eggs into a bowl, add milk, salt, and pepper." },
+      { "text": "Beat the eggs with a fork until fully mixed (about 30 seconds).", "timerSeconds": 30 },
+      { "text": "Heat a non-stick pan on medium heat and add butter." },
+      { "text": "Pour the egg mixture into the pan. Let it cook without stirring for 1 minute.", "timerSeconds": 60 },
+      { "text": "Gently push the edges inward with a spatula, tilting the pan to let raw egg flow to the edges." },
+      { "text": "Sprinkle cheese on one half. Fold the other half over. Cook 30 more seconds.", "timerSeconds": 30 },
+      { "text": "Slide onto a plate. Garnish with fresh herbs if desired. Enjoy!" }
+    ]
+  },
+  {
+    "id": "pasta-aglio",
+    "title": "Pasta Aglio e Olio",
+    "emoji": "🍝",
+    "description": "Simple Italian pasta with garlic, olive oil, and chili flakes.",
+    "servings": 2,
+    "ingredients": [
+      "200g spaghetti",
+      "4 cloves garlic, thinly sliced",
+      "1/3 cup olive oil",
+      "1/2 tsp red chili flakes",
+      "Salt to taste",
+      "Fresh parsley, chopped",
+      "Parmesan cheese (optional)"
+    ],
+    "steps": [
+      { "text": "Bring a large pot of salted water to a boil." },
+      { "text": "Add spaghetti and cook until al dente (about 8 minutes). Reserve 1/2 cup pasta water before draining.", "timerSeconds": 480 },
+      { "text": "While pasta cooks, heat olive oil in a large pan over medium-low heat." },
+      { "text": "Add sliced garlic to the oil. Sauté gently for 2 minutes until golden (not brown!).", "timerSeconds": 120 },
+      { "text": "Add chili flakes to the garlic oil. Stir for 15 seconds." },
+      { "text": "Add the drained pasta to the pan. Toss well with the garlic oil." },
+      { "text": "Add a splash of reserved pasta water to make it glossy. Toss again." },
+      { "text": "Serve with chopped parsley and Parmesan on top. Buon appetito!" }
+    ]
+  },
+  {
+    "id": "chicken-karahi",
+    "title": "Chicken Karahi",
+    "emoji": "🍗",
+    "description": "A fragrant Pakistani stir-fried chicken with tomatoes and spices.",
+    "servings": 4,
+    "ingredients": [
+      "500g chicken, cut into pieces",
+      "3 tomatoes, chopped",
+      "2 tbsp cooking oil or ghee",
+      "1 tbsp ginger-garlic paste",
+      "1 tsp cumin seeds",
+      "1 tsp red chili powder",
+      "1/2 tsp turmeric",
+      "Salt to taste",
+      "Fresh green chilies, slit",
+      "Fresh coriander leaves",
+      "1 tsp garam masala"
+    ],
+    "steps": [
+      { "text": "Heat oil or ghee in a karahi (wok) over high heat." },
+      { "text": "Add cumin seeds and let them splutter for 10 seconds.", "timerSeconds": 10 },
+      { "text": "Add ginger-garlic paste. Stir-fry for 1 minute until fragrant.", "timerSeconds": 60 },
+      { "text": "Add chicken pieces. Cook on high heat for 5 minutes, stirring often.", "timerSeconds": 300 },
+      { "text": "Add chopped tomatoes, red chili powder, turmeric, and salt. Mix well." },
+      { "text": "Cover and cook on medium heat for 12 minutes until chicken is tender and tomatoes form a thick sauce.", "timerSeconds": 720 },
+      { "text": "Remove lid. Add garam masala and green chilies. Stir-fry for 2 minutes on high heat.", "timerSeconds": 120 },
+      { "text": "Garnish with fresh coriander. Serve hot with naan or rice!" }
+    ]
+  }
+]
+

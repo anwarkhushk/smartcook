@@ -1,0 +1,139 @@
+/* ===== AskPanel styles ===== */
+
+.ask-panel {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* --- Input form --- */
+.ask-form {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.ask-input {
+  flex: 1;
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
+  font-family: inherit;
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  outline: none;
+  min-height: 48px;
+  transition: border-color 0.2s;
+}
+
+.ask-input:focus {
+  border-color: #ff6b35;
+}
+
+.ask-input:disabled {
+  background: #f5f5f5;
+}
+
+.btn-ask {
+  background: #ff6b35;
+  color: white;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  padding: 0.7rem 1.2rem;
+  cursor: pointer;
+  min-height: 48px;
+  transition: background 0.15s;
+}
+
+.btn-ask:hover:not(:disabled) {
+  background: #e55a27;
+}
+
+.btn-ask:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* --- Thinking animation --- */
+.ask-thinking {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  padding: 0.5rem 0;
+  font-size: 1rem;
+  color: #666;
+}
+
+.thinking-dot {
+  animation: dotPulse 1.2s ease-in-out infinite;
+  font-size: 0.6rem;
+  color: #ff6b35;
+}
+
+.thinking-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.thinking-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes dotPulse {
+  0%, 80%, 100% { opacity: 0.3; }
+  40% { opacity: 1; }
+}
+
+/* --- Answer card --- */
+.ask-answer {
+  background: #f0faf0;
+  border: 2px solid #a5d6a7;
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+}
+
+.answer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #2e7d32;
+}
+
+.btn-close-answer {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: #888;
+  padding: 0.2rem;
+  line-height: 1;
+}
+
+.btn-close-answer:hover {
+  color: #333;
+}
+
+.answer-text {
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: #333;
+}
+
+/* --- Error --- */
+.ask-error {
+  background: #fff3e0;
+  border: 2px solid #ffcc80;
+  border-radius: 12px;
+  padding: 0.6rem 1rem;
+}
+
+.ask-error p {
+  font-size: 0.95rem;
+  color: #e65100;
+}
+

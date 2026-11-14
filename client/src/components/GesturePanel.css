@@ -1,0 +1,190 @@
+/* ===== GesturePanel styles ===== */
+
+.gesture-panel {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  width: 100%;
+  background: #ffffff;
+  border: 2px solid #e0e0e0;
+  border-radius: 14px;
+  padding: 0.85rem 1rem;
+  margin-bottom: 1rem;
+  transition: border-color 0.25s, box-shadow 0.25s, background 0.25s;
+}
+
+/* Highlighted when Adaptation Engine Rule 2 triggers (noisy room / voice failures) */
+.gesture-panel-highlighted {
+  border-color: #ff6b35;
+  background: #fff8f5;
+  box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.2);
+}
+
+.gesture-camera-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  flex-shrink: 0;
+}
+
+.camera-stage {
+  position: relative;
+  width: 160px;
+  height: 120px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #111;
+  border: 2px solid #ccc;
+}
+
+/* Mirror video and canvas horizontally so moving right looks natural */
+.gesture-video,
+.gesture-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 160px;
+  height: 120px;
+  object-fit: cover;
+  transform: scaleX(-1);
+}
+
+.gesture-canvas {
+  pointer-events: none;
+}
+
+.camera-loading,
+.camera-off-box {
+  width: 160px;
+  height: 120px;
+  border-radius: 10px;
+  background: #2b2b2b;
+  color: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.gesture-overlay-badge {
+  position: absolute;
+  bottom: 4px;
+  left: 4px;
+  right: 4px;
+  background: rgba(0, 0, 0, 0.72);
+  color: #fff;
+  border-radius: 8px;
+  padding: 2px 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.hold-ring {
+  flex-shrink: 0;
+  transform: rotate(-90deg);
+}
+
+.hold-ring-bg {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.25);
+  stroke-width: 4;
+}
+
+.hold-ring-fill {
+  fill: none;
+  stroke: #4caf50;
+  stroke-width: 4;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.08s linear;
+}
+
+.gesture-pose-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.camera-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.btn-camera-toggle {
+  font-family: inherit;
+  font-size: 0.78rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: #f5f5f5;
+  cursor: pointer;
+}
+
+.btn-camera-toggle:hover {
+  background: #eaeaea;
+}
+
+.distance-pill {
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.2rem 0.5rem;
+  border-radius: 8px;
+  background: #eef4ff;
+  color: #1565c0;
+}
+
+.gesture-error-text {
+  font-size: 0.78rem;
+  color: #c62828;
+  max-width: 170px;
+  text-align: center;
+}
+
+/* --- Gesture Guide --- */
+.gesture-guide {
+  flex: 1;
+  text-align: left;
+}
+
+.gesture-guide-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 0.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.guide-badge {
+  background: #ff6b35;
+  color: white;
+  font-size: 0.75rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 10px;
+}
+
+.gesture-guide-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(195px, 1fr));
+  gap: 0.35rem 0.75rem;
+  font-size: 0.88rem;
+  color: #444;
+}
+
+@media (max-width: 600px) {
+  .gesture-panel {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .gesture-camera-box {
+    align-self: center;
+  }
+}

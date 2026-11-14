@@ -1,0 +1,55 @@
+/* ===== RecipeCard styles ===== */
+
+.recipe-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+  min-height: 200px;
+  width: 100%;
+  max-width: 320px;
+  /* Large touch target */
+  min-width: 260px;
+  font-family: inherit;
+  text-align: center;
+}
+
+.recipe-card:hover,
+.recipe-card:focus {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  border-color: #ff6b35;
+  outline: none;
+}
+
+.recipe-card:active {
+  transform: translateY(0);
+}
+
+.recipe-card-emoji {
+  font-size: 3rem;
+}
+
+.recipe-card-title {
+  font-size: 1.3rem;
+  color: #222;
+}
+
+.recipe-card-desc {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+.recipe-card-meta {
+  font-size: 0.85rem;
+  color: #888;
+  margin-top: auto;
+}
+

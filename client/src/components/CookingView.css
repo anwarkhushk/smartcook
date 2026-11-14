@@ -1,0 +1,351 @@
+/* ===== CookingView styles ===== */
+/* High contrast, large text, big touch targets (min 64px) */
+
+.cooking-view {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  max-width: 780px;
+  margin: 0 auto;
+  width: 100%;
+  transition: all 0.25s ease;
+}
+
+/* --- Rule 1 Adaptation: Far away → Enlarge font size & button size --- */
+.cooking-view-large {
+  max-width: 920px;
+}
+
+.cooking-view-large .step-text {
+  font-size: 2.15rem;
+  line-height: 1.55;
+  font-weight: 600;
+}
+
+.cooking-view-large .step-counter {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.cooking-view-large .btn {
+  min-height: 78px;
+  font-size: 1.35rem;
+  padding: 1rem 2rem;
+}
+
+.cooking-view-large .timer-display {
+  font-size: 3.1rem;
+}
+
+/* --- Header --- */
+.cooking-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  margin-bottom: 0.65rem;
+}
+
+.cooking-title {
+  font-size: 1.3rem;
+  color: #333;
+  flex: 1;
+  text-align: left;
+}
+
+.btn-restart {
+  background: #fff3e0;
+  color: #d84315;
+  border: 1px solid #ffcc80;
+  font-size: 0.9rem;
+  min-height: 44px;
+  padding: 0.4rem 0.85rem;
+}
+
+.btn-restart:hover {
+  background: #ffe0b2;
+}
+
+/* --- Progress bar --- */
+.progress-bar-container {
+  width: 100%;
+  height: 10px;
+  background: #e0e0e0;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 0.6rem;
+}
+
+.progress-bar {
+  height: 100%;
+  background: #ff6b35;
+  border-radius: 5px;
+  transition: width 0.3s ease;
+}
+
+/* --- Step counter + Source-Labeled Feedback Pill --- */
+.step-status-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.step-counter {
+  font-size: 1rem;
+  color: #555;
+  font-weight: 600;
+}
+
+.understood-badge {
+  background: #e8f5e9;
+  border: 1px solid #a5d6a7;
+  color: #1b5e20;
+  font-size: 0.88rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 20px;
+}
+
+/* --- Risky Action Confirmation Banner --- */
+.confirmation-banner {
+  width: 100%;
+  background: #fff3e0;
+  border: 2px solid #ff9800;
+  border-radius: 12px;
+  padding: 0.85rem 1.1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.confirmation-text {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #e65100;
+}
+
+.confirmation-buttons {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.btn-confirm-yes {
+  background: #d84315;
+  color: white;
+  min-height: 48px !important;
+  font-size: 0.95rem !important;
+  padding: 0.5rem 1rem !important;
+}
+
+.btn-confirm-no {
+  background: #e0e0e0;
+  color: #333;
+  min-height: 48px !important;
+  font-size: 0.95rem !important;
+  padding: 0.5rem 1rem !important;
+}
+
+/* --- Step card --- */
+.step-card {
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 16px;
+  padding: 2rem;
+  width: 100%;
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.step-text {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  color: #222;
+  text-align: center;
+  transition: font-size 0.25s ease;
+}
+
+/* --- Timer panel --- */
+.timer-panel {
+  background: #f0f4ff;
+  border: 2px solid #b0c4ff;
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.timer-panel.timer-done {
+  background: #fff3e0;
+  border-color: #ff9800;
+  animation: pulse 0.6s ease-in-out 3;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.03); }
+}
+
+.timer-display {
+  font-size: 2.5rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: #333;
+}
+
+.timer-alert {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #e65100;
+}
+
+.timer-buttons {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* --- Buttons --- */
+.btn {
+  font-family: inherit;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  /* Big touch target: min 64px tall */
+  min-height: 64px;
+  padding: 0.75rem 1.5rem;
+  transition: background 0.15s, transform 0.1s, font-size 0.2s;
+}
+
+.btn:active {
+  transform: scale(0.96);
+}
+
+.btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: #ff6b35;
+  color: white;
+}
+.btn-primary:hover:not(:disabled) {
+  background: #e55a27;
+}
+
+.btn-secondary {
+  background: #e0e0e0;
+  color: #333;
+}
+.btn-secondary:hover:not(:disabled) {
+  background: #ccc;
+}
+
+.btn-done {
+  background: #4caf50;
+  color: white;
+}
+.btn-done:hover {
+  background: #43a047;
+}
+
+.btn-undo {
+  background: #fff3e0;
+  color: #e65100;
+  border: 2px solid #ffcc80;
+}
+.btn-undo:hover {
+  background: #ffe0b2;
+}
+
+.btn-back {
+  background: transparent;
+  color: #888;
+  font-size: 1rem;
+  min-height: 48px;
+  padding: 0.5rem 1rem;
+}
+.btn-back:hover {
+  color: #333;
+}
+
+.btn-timer {
+  background: #1976d2;
+  color: white;
+  font-size: 1rem;
+  min-height: 52px;
+}
+.btn-timer:hover {
+  background: #1565c0;
+}
+
+.btn-timer-reset {
+  background: #e0e0e0;
+  color: #555;
+  font-size: 1rem;
+  min-height: 52px;
+}
+.btn-timer-reset:hover {
+  background: #ccc;
+}
+
+/* --- Navigation --- */
+.cooking-nav {
+  display: flex;
+  gap: 0.85rem;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+
+/* --- Done screen --- */
+.done-screen {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.done-emoji {
+  font-size: 4rem;
+}
+
+.done-screen h2 {
+  font-size: 2rem;
+  color: #333;
+}
+
+.done-screen p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.done-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 0.5rem;
+}

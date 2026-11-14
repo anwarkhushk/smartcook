@@ -1,0 +1,219 @@
+/* ===== AdaptationBanner styles ===== */
+
+.adaptation-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.adaptation-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  background: #f4f6f9;
+  border: 1px solid #dce1e8;
+  border-radius: 12px;
+  padding: 0.5rem 0.85rem;
+}
+
+.adaptive-toggle-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.btn-adaptive-toggle {
+  font-family: inherit;
+  font-size: 0.88rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: 20px;
+  border: 2px solid #bbb;
+  cursor: pointer;
+  background: #fff;
+  transition: all 0.15s;
+}
+
+.btn-adaptive-toggle.adaptive-on {
+  border-color: #2e7d32;
+  background: #e8f5e9;
+  color: #1b5e20;
+}
+
+.btn-adaptive-toggle.adaptive-off {
+  border-color: #9e9e9e;
+  background: #eeeeee;
+  color: #555;
+}
+
+.sensor-summary {
+  font-size: 0.82rem;
+  color: #555;
+}
+
+.btn-sim-toggle {
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.3rem 0.65rem;
+  border-radius: 8px;
+  border: 1px dashed #888;
+  background: #fff;
+  color: #444;
+  cursor: pointer;
+}
+
+.btn-sim-toggle:hover {
+  background: #f0f0f0;
+}
+
+/* --- Viva Simulator Panel --- */
+.viva-sim-panel {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  background: #fffde7;
+  border: 1px solid #fff59d;
+  border-radius: 10px;
+  padding: 0.55rem 0.85rem;
+}
+
+.sim-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #665c00;
+  margin-right: 0.25rem;
+}
+
+.btn-sim {
+  font-family: inherit;
+  font-size: 0.78rem;
+  padding: 0.28rem 0.65rem;
+  border-radius: 8px;
+  border: 1px solid #cbb647;
+  background: #fff;
+  cursor: pointer;
+}
+
+.btn-sim.sim-active {
+  background: #ff6b35;
+  color: #fff;
+  border-color: #d94e1f;
+  font-weight: 600;
+}
+
+/* --- Explainable Adaptation Notices --- */
+.adaptation-notices {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.adaptation-pill {
+  background: #e3f2fd;
+  border-left: 4px solid #1976d2;
+  color: #0d47a1;
+  padding: 0.5rem 0.85rem;
+  border-radius: 8px;
+  font-size: 0.92rem;
+  text-align: left;
+}
+
+.pill-suggestGestures {
+  background: #fff3e0;
+  border-left-color: #ff6b35;
+  color: #bf360c;
+}
+
+.pill-suggestVoiceOrTouch {
+  background: #f3e5f5;
+  border-left-color: #8e24aa;
+  color: #4a148c;
+}
+
+.pill-icon {
+  font-weight: 700;
+}
+
+/* --- Rule 4: Help-Hint Card --- */
+.help-hint-card {
+  background: #fff8e1;
+  border: 2px solid #ffd54f;
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+  text-align: left;
+}
+
+.help-hint-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  color: #e65100;
+}
+
+.btn-dismiss-help {
+  background: transparent;
+  border: 1px solid #e65100;
+  color: #e65100;
+  border-radius: 6px;
+  padding: 0.15rem 0.5rem;
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+
+.help-hint-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.65rem;
+  font-size: 0.85rem;
+  color: #333;
+}
+
+.help-hint-columns p {
+  margin-top: 0.2rem;
+  color: #555;
+  line-height: 1.35;
+}
+
+/* --- Rule 5: Long Step Help Prompt --- */
+.step-help-prompt {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  background: #e8f5e9;
+  border: 2px solid #81c784;
+  border-radius: 12px;
+  padding: 0.65rem 1rem;
+  font-size: 0.92rem;
+  color: #1b5e20;
+}
+
+.step-help-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.btn-quick-ask {
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+  background: #2e7d32;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.35rem 0.75rem;
+  cursor: pointer;
+}
+
+.btn-quick-ask:hover {
+  background: #1b5e20;
+}
