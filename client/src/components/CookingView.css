@@ -1,91 +1,96 @@
-/* ===== CookingView styles ===== */
-/* High contrast, large text, big touch targets (min 64px) */
+/* ===== CookingView styles — Dark Culinary Workspace ===== */
 
 .cooking-view {
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1.25rem 1.5rem;
-  max-width: 780px;
+  padding: 2rem 1.5rem 3.5rem;
+  max-width: 900px;
   margin: 0 auto;
   width: 100%;
-  transition: all 0.25s ease;
+  transition: max-width var(--transition-smooth);
 }
 
 /* --- Rule 1 Adaptation: Far away → Enlarge font size & button size --- */
 .cooking-view-large {
-  max-width: 920px;
+  max-width: 1060px;
 }
 
 .cooking-view-large .step-text {
-  font-size: 2.15rem;
-  line-height: 1.55;
+  font-size: 2.25rem;
+  line-height: 1.5;
   font-weight: 600;
 }
 
 .cooking-view-large .step-counter {
-  font-size: 1.25rem;
-  font-weight: 600;
+  font-size: 1.45rem;
 }
 
 .cooking-view-large .btn {
   min-height: 78px;
-  font-size: 1.35rem;
+  font-size: 1.3rem;
   padding: 1rem 2rem;
 }
 
 .cooking-view-large .timer-display {
-  font-size: 3.1rem;
+  font-size: 3.2rem;
 }
 
 /* --- Header --- */
 .cooking-header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
   gap: 1rem;
   width: 100%;
-  margin-bottom: 0.65rem;
+  padding-bottom: 1.15rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.cooking-title-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 180px;
 }
 
 .cooking-title {
-  font-size: 1.3rem;
-  color: #333;
-  flex: 1;
-  text-align: left;
+  font-family: var(--font-serif);
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.15;
 }
 
-.btn-restart {
-  background: #fff3e0;
-  color: #d84315;
-  border: 1px solid #ffcc80;
-  font-size: 0.9rem;
-  min-height: 44px;
-  padding: 0.4rem 0.85rem;
+.cooking-subtitle {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  margin-top: 0.15rem;
 }
 
-.btn-restart:hover {
-  background: #ffe0b2;
+.cooking-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
 }
 
-/* --- Progress bar --- */
-.progress-bar-container {
+/* --- Progress Section --- */
+.progress-section {
   width: 100%;
-  height: 10px;
-  background: #e0e0e0;
-  border-radius: 5px;
-  overflow: hidden;
-  margin-bottom: 0.6rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
 }
 
-.progress-bar {
-  height: 100%;
-  background: #ff6b35;
-  border-radius: 5px;
-  transition: width 0.3s ease;
-}
-
-/* --- Step counter + Source-Labeled Feedback Pill --- */
 .step-status-row {
   width: 100%;
   display: flex;
@@ -93,43 +98,102 @@
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-bottom: 0.75rem;
+}
+
+.step-counter-group {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
 }
 
 .step-counter {
-  font-size: 1rem;
-  color: #555;
-  font-weight: 600;
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.step-remaining {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
 }
 
 .understood-badge {
-  background: #e8f5e9;
-  border: 1px solid #a5d6a7;
-  color: #1b5e20;
-  font-size: 0.88rem;
-  padding: 0.3rem 0.75rem;
-  border-radius: 20px;
+  background: rgba(100, 30, 53, 0.35);
+  border: 1px solid var(--accent-hover);
+  color: var(--text-primary);
+  font-size: 0.84rem;
+  padding: 0.32rem 0.85rem;
+  border-radius: 999px;
+}
+
+.understood-badge strong {
+  color: #f7c6d0;
+}
+
+.progress-bar-container {
+  width: 100%;
+  height: 8px;
+  background: #261f22;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-hover));
+  border-radius: 999px;
+  transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Segmented step indicator */
+.step-segments {
+  display: flex;
+  gap: 0.4rem;
+  width: 100%;
+  padding-top: 0.15rem;
+}
+
+.step-segment {
+  flex: 1;
+  height: 5px;
+  border-radius: 999px;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.segment-completed {
+  background: var(--accent-primary);
+}
+
+.segment-current {
+  background: var(--accent-hover);
+  box-shadow: 0 0 8px rgba(163, 58, 80, 0.65);
+}
+
+.segment-pending {
+  background: #2c2327;
 }
 
 /* --- Risky Action Confirmation Banner --- */
 .confirmation-banner {
   width: 100%;
-  background: #fff3e0;
-  border: 2px solid #ff9800;
-  border-radius: 12px;
-  padding: 0.85rem 1.1rem;
-  margin-bottom: 1rem;
+  background: #24161b;
+  border: 1px solid var(--accent-hover);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.15rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: 0.85rem;
+  box-shadow: var(--shadow-card);
 }
 
 .confirmation-text {
-  font-size: 1rem;
+  font-size: 0.98rem;
   font-weight: 600;
-  color: #e65100;
+  color: var(--text-primary);
 }
 
 .confirmation-buttons {
@@ -138,104 +202,207 @@
 }
 
 .btn-confirm-yes {
-  background: #d84315;
-  color: white;
+  background: var(--accent-primary);
+  border: 1px solid var(--accent-hover) !important;
+  color: var(--text-primary);
   min-height: 48px !important;
-  font-size: 0.95rem !important;
-  padding: 0.5rem 1rem !important;
+  font-size: 0.92rem !important;
+  padding: 0.5rem 1.1rem !important;
+}
+
+.btn-confirm-yes:hover {
+  background: var(--accent-hover);
 }
 
 .btn-confirm-no {
-  background: #e0e0e0;
-  color: #333;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-soft) !important;
+  color: var(--text-secondary);
   min-height: 48px !important;
-  font-size: 0.95rem !important;
-  padding: 0.5rem 1rem !important;
+  font-size: 0.92rem !important;
+  padding: 0.5rem 1.1rem !important;
 }
 
-/* --- Step card --- */
-.step-card {
-  background: white;
-  border: 2px solid #e0e0e0;
-  border-radius: 16px;
-  padding: 2rem;
+.btn-confirm-no:hover {
+  color: var(--text-primary);
+  border-color: var(--accent-hover) !important;
+}
+
+/* --- Ingredients Reference Strip --- */
+.ingredients-reference-panel {
   width: 100%;
-  min-height: 150px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1.15rem;
+  margin-bottom: 1.15rem;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1.25rem;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
-.step-text {
-  font-size: 1.5rem;
-  line-height: 1.6;
-  color: #222;
-  text-align: center;
-  transition: font-size 0.25s ease;
+.ingredients-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-secondary);
+  font-weight: 600;
 }
 
-/* --- Timer panel --- */
-.timer-panel {
-  background: #f0f4ff;
-  border: 2px solid #b0c4ff;
-  border-radius: 12px;
-  padding: 1rem 1.5rem;
+.ingredients-tag-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.ingredient-tag {
+  font-size: 0.82rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: var(--radius-sm);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-soft);
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.ingredient-tag-active {
+  background: rgba(100, 30, 53, 0.38);
+  border-color: var(--accent-hover);
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* --- Step Instruction Card --- */
+.step-card {
+  position: relative;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-soft);
+  border-top: 3px solid var(--accent-hover);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 2.25rem;
   width: 100%;
+  min-height: 190px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
+  justify-content: center;
+  gap: 0.75rem;
   margin-bottom: 1.25rem;
+  box-shadow: var(--shadow-card);
+  animation: stepFadeIn 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes stepFadeIn {
+  from {
+    opacity: 0.4;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.step-card-kicker {
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--accent-hover);
+  font-weight: 600;
+}
+
+.step-text {
+  font-size: 1.65rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+  text-align: center;
+  max-width: 720px;
+  transition: font-size var(--transition-smooth);
+}
+
+/* --- Timer Panel --- */
+.timer-panel {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-md);
+  padding: 1.15rem 1.5rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  box-shadow: var(--shadow-card);
 }
 
 .timer-panel.timer-done {
-  background: #fff3e0;
-  border-color: #ff9800;
+  background: #28171e;
+  border-color: var(--accent-hover);
   animation: pulse 0.6s ease-in-out 3;
 }
 
 @keyframes pulse {
   0%, 100% { transform: scale(1); }
-  50%      { transform: scale(1.03); }
+  50%      { transform: scale(1.02); }
+}
+
+.timer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.timer-kicker {
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--text-secondary);
+  font-weight: 600;
 }
 
 .timer-display {
+  font-family: var(--font-serif);
   font-size: 2.5rem;
   font-weight: 700;
   font-variant-numeric: tabular-nums;
-  color: #333;
+  color: var(--text-primary);
+  line-height: 1.1;
 }
 
 .timer-alert {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 600;
-  color: #e65100;
+  color: #f4a261;
 }
 
 .timer-buttons {
   display: flex;
   gap: 0.75rem;
   flex-wrap: wrap;
-  justify-content: center;
 }
 
-/* --- Buttons --- */
+/* --- Buttons (min-height 64px for hands-free / messy-hand touch targets) --- */
 .btn {
-  font-family: inherit;
-  font-size: 1.1rem;
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
   font-weight: 600;
-  border: none;
-  border-radius: 12px;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-md);
   cursor: pointer;
-  /* Big touch target: min 64px tall */
   min-height: 64px;
-  padding: 0.75rem 1.5rem;
-  transition: background 0.15s, transform 0.1s, font-size 0.2s;
+  padding: 0.75rem 1.6rem;
+  color: var(--text-primary);
+  background: var(--bg-surface);
+  transition: background var(--transition-fast),
+    border-color var(--transition-fast),
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
 }
 
-.btn:active {
-  transform: scale(0.96);
+.btn:active:not(:disabled) {
+  transform: scale(0.97);
 }
 
 .btn:disabled {
@@ -244,102 +411,139 @@
 }
 
 .btn-primary {
-  background: #ff6b35;
-  color: white;
+  background: var(--accent-primary);
+  border-color: var(--accent-hover);
+  color: var(--text-primary);
+  box-shadow: 0 6px 20px rgba(100, 30, 53, 0.45);
 }
+
 .btn-primary:hover:not(:disabled) {
-  background: #e55a27;
+  background: var(--accent-hover);
 }
 
 .btn-secondary {
-  background: #e0e0e0;
-  color: #333;
+  background: var(--bg-surface);
+  border-color: var(--border-soft);
+  color: var(--text-primary);
 }
+
 .btn-secondary:hover:not(:disabled) {
-  background: #ccc;
+  background: var(--bg-elevated);
+  border-color: var(--accent-hover);
 }
 
 .btn-done {
-  background: #4caf50;
-  color: white;
+  background: var(--accent-primary);
+  border-color: var(--accent-hover);
+  color: var(--text-primary);
+  box-shadow: 0 6px 20px rgba(100, 30, 53, 0.5);
 }
+
 .btn-done:hover {
-  background: #43a047;
+  background: var(--accent-hover);
 }
 
 .btn-undo {
-  background: #fff3e0;
-  color: #e65100;
-  border: 2px solid #ffcc80;
-}
-.btn-undo:hover {
-  background: #ffe0b2;
+  background: #24181c;
+  color: var(--text-primary);
+  border: 1px solid var(--accent-hover);
 }
 
-.btn-back {
-  background: transparent;
-  color: #888;
-  font-size: 1rem;
-  min-height: 48px;
-  padding: 0.5rem 1rem;
+.btn-undo:hover {
+  background: var(--accent-primary);
 }
-.btn-back:hover {
-  color: #333;
+
+.btn-back,
+.btn-ingredients-toggle,
+.btn-restart {
+  min-height: 44px;
+  padding: 0.48rem 0.95rem;
+  font-size: 0.85rem;
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-soft);
+  color: var(--text-secondary);
+}
+
+.btn-back:hover,
+.btn-ingredients-toggle:hover,
+.btn-restart:hover {
+  color: var(--text-primary);
+  border-color: var(--accent-hover);
+  background: var(--bg-elevated);
 }
 
 .btn-timer {
-  background: #1976d2;
-  color: white;
-  font-size: 1rem;
-  min-height: 52px;
+  background: var(--accent-primary);
+  border-color: var(--accent-hover);
+  color: var(--text-primary);
+  font-size: 0.98rem;
+  min-height: 54px;
 }
+
 .btn-timer:hover {
-  background: #1565c0;
+  background: var(--accent-hover);
 }
 
 .btn-timer-reset {
-  background: #e0e0e0;
-  color: #555;
-  font-size: 1rem;
-  min-height: 52px;
-}
-.btn-timer-reset:hover {
-  background: #ccc;
+  background: var(--bg-elevated);
+  border-color: var(--border-soft);
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  min-height: 54px;
 }
 
-/* --- Navigation --- */
+.btn-timer-reset:hover {
+  color: var(--text-primary);
+  border-color: var(--accent-hover);
+}
+
+/* --- Navigation Row --- */
 .cooking-nav {
   display: flex;
   gap: 0.85rem;
   width: 100%;
   justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
 }
 
-/* --- Done screen --- */
+.cooking-nav .btn-primary,
+.cooking-nav .btn-done {
+  min-width: 165px;
+}
+
+/* --- Done Screen --- */
 .done-screen {
   flex: 1;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-lg);
+  padding: 3.5rem 2rem;
+  width: 100%;
+  margin-top: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 1rem;
   text-align: center;
+  box-shadow: var(--shadow-card);
 }
 
 .done-emoji {
-  font-size: 4rem;
+  font-size: 3.8rem;
 }
 
 .done-screen h2 {
-  font-size: 2rem;
-  color: #333;
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  color: var(--text-primary);
 }
 
 .done-screen p {
-  font-size: 1.2rem;
-  color: #555;
+  font-size: 1.15rem;
+  color: var(--text-secondary);
 }
 
 .done-actions {
@@ -347,5 +551,21 @@
   gap: 1rem;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
+}
+
+@media (max-width: 640px) {
+  .cooking-view {
+    padding: 1.25rem 1rem 2.5rem;
+  }
+  .step-card {
+    padding: 1.75rem 1.25rem;
+  }
+  .step-text {
+    font-size: 1.35rem;
+  }
+  .timer-panel {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }

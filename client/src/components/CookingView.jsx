@@ -55,6 +55,9 @@ function CookingView({ recipe, onExit }) {
   // User-controllable Adaptive Mode ON/OFF toggle
   const [adaptiveEnabled, setAdaptiveEnabled] = useState(true);
 
+  // Collapsible ingredients reference toggle (UI-only)
+  const [showIngredients, setShowIngredients] = useState(true);
+
   // Voice & AI hooks
   const voice = useVoice();
   const ai = useAskAI();
@@ -71,6 +74,7 @@ function CookingView({ recipe, onExit }) {
 
   const currentStep = recipe.steps[stepIndex];
   const progress = ((stepIndex + 1) / totalSteps) * 100;
+  const remainingSteps = totalSteps - (stepIndex + 1);
 
   // --- Gesture callback (routed through central action dispatcher) ---
   const handleGestureDetected = useCallback(
@@ -263,42 +267,91 @@ function CookingView({ recipe, onExit }) {
     <div
       className={`cooking-view ${adaptations.largeUi ? 'cooking-view-large' : ''}`}
     >
-      {/* Header bar with recipe title, restart, and exit */}
+      {/* Header bar with recipe title, ingredients toggle, restart, and exit */}
       <div className="cooking-header">
         <button className="btn btn-back" onClick={onExit}>
           ✕ Exit
         </button>
-        <h2 className="cooking-title">
-          {recipe.emoji} {recipe.title}
-        </h2>
-        {stepIndex > 0 && (
-          <button
-            className="btn btn-restart"
-            onClick={() => actions.restartRecipe('touch')}
-            title="Restart from Step 1 (asks confirmation)"
-          >
-            ⏮ Restart
-          </button>
-        )}
-      </div>
 
-      {/* Progress bar */}
-      <div className="progress-bar-container">
-        <div className="progress-bar" style={{ width: `${progress}%` }} />
-      </div>
-
-      {/* Step counter + last understood input badge */}
-      <div className="step-status-row">
-        <p className="step-counter">
-          Step {stepIndex + 1} of {totalSteps}
-        </p>
-
-        {lastActionFeedback && (
-          <span className="understood-badge" role="status">
-            <strong>{SOURCE_BADGES[lastActionFeedback.source]}:</strong>{' '}
-            {lastActionFeedback.message}
+        <div className="cooking-title-group">
+          <h2 className="cooking-title">
+            <span className="cooking-title-emoji">{recipe.emoji}</span>{' '}
+            {recipe.title}
+          </h2>
+          <span className="cooking-subtitle">
+            {recipe.servings} serving{recipe.servings > 1 ? 's' : ''} ·{' '}
+            {totalSteps} guided steps
           </span>
-        )}
+        </div>
+
+        <div className="cooking-header-actions">
+          {recipe.ingredients && recipe.ingredients.length > 0 && (
+            <button
+              type="button"
+              className="btn btn-ingredients-toggle"
+              onClick={() => setShowIngredients((s) => !s)}
+            >
+              🥗 {showIngredients ? 'Hide Ingredients' : 'Ingredients'}
+            </button>
+          )}
+
+          {stepIndex > 0 && (
+            <button
+              className="btn btn-restart"
+              onClick={() => actions.restartRecipe('touch')}
+              title="Restart from Step 1 (asks confirmation)"
+            >
+              ⏮ Restart
+            </button>
+          )}
+        </div>
+      </div>
+
+      {/* Progress Section: Segmented Step Track + Smooth Bar */}
+      <div className="progress-section">
+        <div className="step-status-row">
+          <div className="step-counter-group">
+            <p className="step-counter">
+              Step {stepIndex + 1} of {totalSteps}
+            </p>
+            <span className="step-remaining">
+              {remainingSteps > 0
+                ? `${remainingSteps} step${remainingSteps > 1 ? 's' : ''} remaining`
+                : 'Final step'}
+            </span>
+          </div>
+
+          {lastActionFeedback && (
+            <span className="understood-badge" role="status">
+              <strong>{SOURCE_BADGES[lastActionFeedback.source]}:</strong>{' '}
+              {lastActionFeedback.message}
+            </span>
+          )}
+        </div>
+
+        {/* Continuous Progress Bar */}
+        <div className="progress-bar-container">
+          <div className="progress-bar" style={{ width: `${progress}%` }} />
+        </div>
+
+        {/* Segmented Step Dots (distinguishes completed, current, and pending steps) */}
+        <div className="step-segments" aria-hidden="true">
+          {recipe.steps.map((_, idx) => {
+            const stateClass =
+              idx < stepIndex
+                ? 'segment-completed'
+                : idx === stepIndex
+                  ? 'segment-current'
+                  : 'segment-pending';
+            return (
+              <span
+                key={idx}
+                className={`step-segment ${stateClass}`}
+                title={`Step ${idx + 1}`}
+              />
+            );
+          })}
+        </div>
       </div>
 
       {/* Risky Action Confirmation Banner (Error Prevention — Nielsen) */}
@@ -351,8 +404,41 @@ function CookingView({ recipe, onExit }) {
         />
       )}
 
-      {/* Step text card */}
-      <div className="step-card">
+      {/* Ingredient Reference Strip (uses existing recipe.ingredients array) */}
+      {showIngredients && recipe.ingredients && recipe.ingredients.length > 0 && (
+        <div className="ingredients-reference-panel">
+          <span className="ingredients-label">Ingredients for this dish:</span>
+          <ul className="ingredients-tag-list">
+            {recipe.ingredients.map((item, idx) => {
+              // Highlight ingredient if mentioned in the current step text
+              const firstWord = item
+                .replace(/[\d/.,]+/g, '')
+                .trim()
+                .split(/\s+/)
+                .pop()
+                ?.toLowerCase();
+              const isMentioned =
+                firstWord &&
+                firstWord.length > 2 &&
+                currentStep.text.toLowerCase().includes(firstWord);
+              return (
+                <li
+                  key={idx}
+                  className={`ingredient-tag ${
+                    isMentioned ? 'ingredient-tag-active' : ''
+                  }`}
+                >
+                  {item}
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      )}
+
+      {/* Step instruction card */}
+      <div className="step-card" key={stepIndex}>
+        <span className="step-card-kicker">Current Instruction</span>
         <p className="step-text">{currentStep.text}</p>
       </div>
 
@@ -366,7 +452,7 @@ function CookingView({ recipe, onExit }) {
         />
       )}
 
-      {/* Navigation buttons */}
+      {/* Primary Step Navigation Buttons */}
       <div className="cooking-nav">
         <button
           className="btn btn-secondary"
@@ -497,9 +583,11 @@ function TimerPanel({ suggestedSeconds, timer, onStart, onPauseResume }) {
 
   return (
     <div className={`timer-panel ${timer.isFinished ? 'timer-done' : ''}`}>
-      <div className="timer-display">⏱ {formatTime(timer.remaining)}</div>
-
-      {timer.isFinished && <p className="timer-alert">⏰ Time&apos;s up!</p>}
+      <div className="timer-info">
+        <span className="timer-kicker">Step Countdown Timer</span>
+        <div className="timer-display">⏱ {formatTime(timer.remaining)}</div>
+        {timer.isFinished && <p className="timer-alert">⏰ Time&apos;s up!</p>}
+      </div>
 
       <div className="timer-buttons">
         {!timer.isRunning && !timer.isFinished && timer.remaining === 0 && (

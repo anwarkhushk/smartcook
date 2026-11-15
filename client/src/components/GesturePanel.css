@@ -1,30 +1,33 @@
-/* ===== GesturePanel styles ===== */
+/* ===== GesturePanel styles — Dark Culinary Theme ===== */
 
 .gesture-panel {
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  gap: 1.5rem;
   width: 100%;
-  background: #ffffff;
-  border: 2px solid #e0e0e0;
-  border-radius: 14px;
-  padding: 0.85rem 1rem;
-  margin-bottom: 1rem;
-  transition: border-color 0.25s, box-shadow 0.25s, background 0.25s;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.15rem;
+  box-shadow: var(--shadow-card);
+  transition: border-color var(--transition-smooth),
+    box-shadow var(--transition-smooth),
+    background var(--transition-smooth);
 }
 
 /* Highlighted when Adaptation Engine Rule 2 triggers (noisy room / voice failures) */
 .gesture-panel-highlighted {
-  border-color: #ff6b35;
-  background: #fff8f5;
-  box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.2);
+  border-color: var(--accent-hover);
+  background: #22161a;
+  box-shadow: 0 0 0 2px rgba(163, 58, 80, 0.35), var(--shadow-card);
 }
 
 .gesture-camera-box {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.5rem;
   flex-shrink: 0;
 }
 
@@ -32,10 +35,10 @@
   position: relative;
   width: 160px;
   height: 120px;
-  border-radius: 10px;
+  border-radius: var(--radius-sm);
   overflow: hidden;
-  background: #111;
-  border: 2px solid #ccc;
+  background: var(--bg-main);
+  border: 1px solid var(--border-soft);
 }
 
 /* Mirror video and canvas horizontally so moving right looks natural */
@@ -58,30 +61,32 @@
 .camera-off-box {
   width: 160px;
   height: 120px;
-  border-radius: 10px;
-  background: #2b2b2b;
-  color: #ddd;
+  border-radius: var(--radius-sm);
+  background: var(--bg-main);
+  border: 1px solid var(--border-soft);
+  color: var(--text-secondary);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   text-align: center;
   padding: 0.5rem;
 }
 
 .gesture-overlay-badge {
   position: absolute;
-  bottom: 4px;
-  left: 4px;
-  right: 4px;
-  background: rgba(0, 0, 0, 0.72);
-  color: #fff;
-  border-radius: 8px;
-  padding: 2px 6px;
+  bottom: 6px;
+  left: 6px;
+  right: 6px;
+  background: rgba(16, 16, 16, 0.85);
+  border: 1px solid var(--border-soft);
+  color: var(--text-primary);
+  border-radius: 6px;
+  padding: 3px 6px;
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.75rem;
+  font-size: 0.74rem;
   font-weight: 600;
 }
 
@@ -92,13 +97,13 @@
 
 .hold-ring-bg {
   fill: none;
-  stroke: rgba(255, 255, 255, 0.25);
+  stroke: rgba(242, 237, 232, 0.2);
   stroke-width: 4;
 }
 
 .hold-ring-fill {
   fill: none;
-  stroke: #4caf50;
+  stroke: var(--accent-hover);
   stroke-width: 4;
   stroke-linecap: round;
   transition: stroke-dashoffset 0.08s linear;
@@ -113,35 +118,39 @@
 .camera-meta-row {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.45rem;
 }
 
 .btn-camera-toggle {
-  font-family: inherit;
-  font-size: 0.78rem;
-  padding: 0.25rem 0.6rem;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  background: #f5f5f5;
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 600;
+  padding: 0.28rem 0.65rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-soft);
+  background: var(--bg-elevated);
+  color: var(--text-primary);
   cursor: pointer;
+  transition: border-color var(--transition-fast);
 }
 
 .btn-camera-toggle:hover {
-  background: #eaeaea;
+  border-color: var(--accent-hover);
 }
 
 .distance-pill {
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   font-weight: 600;
-  padding: 0.2rem 0.5rem;
-  border-radius: 8px;
-  background: #eef4ff;
-  color: #1565c0;
+  padding: 0.24rem 0.55rem;
+  border-radius: 6px;
+  background: rgba(100, 30, 53, 0.3);
+  border: 1px solid var(--border-soft);
+  color: var(--text-primary);
 }
 
 .gesture-error-text {
-  font-size: 0.78rem;
-  color: #c62828;
+  font-size: 0.76rem;
+  color: #f4a261;
   max-width: 170px;
   text-align: center;
 }
@@ -153,33 +162,40 @@
 }
 
 .gesture-guide-title {
-  font-size: 0.95rem;
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
   font-weight: 700;
-  color: #222;
-  margin-bottom: 0.4rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
 .guide-badge {
-  background: #ff6b35;
-  color: white;
-  font-size: 0.75rem;
-  padding: 0.15rem 0.5rem;
-  border-radius: 10px;
+  font-family: var(--font-sans);
+  background: var(--accent-primary);
+  border: 1px solid var(--accent-hover);
+  color: var(--text-primary);
+  font-size: 0.72rem;
+  padding: 0.18rem 0.55rem;
+  border-radius: 999px;
 }
 
 .gesture-guide-list {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(195px, 1fr));
-  gap: 0.35rem 0.75rem;
-  font-size: 0.88rem;
-  color: #444;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.45rem 0.85rem;
+  font-size: 0.86rem;
+  color: var(--text-secondary);
 }
 
-@media (max-width: 600px) {
+.gesture-guide-list strong {
+  color: var(--text-primary);
+}
+
+@media (max-width: 640px) {
   .gesture-panel {
     flex-direction: column;
     align-items: stretch;

@@ -31,25 +31,54 @@ function App() {
     <div className="app">
       {/* Header bar — always visible */}
       <header className="app-header">
-        <h1
-          className="app-logo"
-          onClick={() => setSelectedRecipe(null)}
-          title="Back to home"
-        >
-          🍳 SmartCook
-        </h1>
+        <div className="header-inner">
+          <div className="brand-group">
+            <h1
+              className="app-logo"
+              onClick={() => setSelectedRecipe(null)}
+              title="Back to home"
+              tabIndex={0}
+              role="button"
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  setSelectedRecipe(null);
+                }
+              }}
+            >
+              <span className="logo-emblem" aria-hidden="true">🍳</span>
+              <span className="logo-wordmark">SmartCook</span>
+            </h1>
+            <span className="brand-divider" aria-hidden="true" />
+            <span className="brand-tagline">Culinary Studio</span>
+          </div>
 
-        <div className="header-right">
-          <button
-            type="button"
-            className="btn-study-header"
-            onClick={() => setShowStudyBar((s) => !s)}
-          >
-            📋 {showStudyBar ? 'Hide Study Bar' : 'Show Study Bar'}
-          </button>
-          <span className="mode-badge">
-            {mode === 'baseline' ? 'Baseline Mode' : 'SmartCook Mode'}
-          </span>
+          <div className="header-right">
+            {selectedRecipe && (
+              <button
+                type="button"
+                className="btn-nav-recipes"
+                onClick={() => setSelectedRecipe(null)}
+              >
+                ← All Recipes
+              </button>
+            )}
+            <button
+              type="button"
+              className="btn-study-header"
+              onClick={() => setShowStudyBar((s) => !s)}
+            >
+              📋 {showStudyBar ? 'Hide Study Bar' : 'Show Study Bar'}
+            </button>
+            <span
+              className={`mode-badge ${
+                mode === 'baseline' ? 'mode-badge-baseline' : 'mode-badge-smart'
+              }`}
+            >
+              <span className="mode-dot" aria-hidden="true" />
+              {mode === 'baseline' ? 'Baseline Mode' : 'SmartCook Mode'}
+            </span>
+          </div>
         </div>
       </header>
 
